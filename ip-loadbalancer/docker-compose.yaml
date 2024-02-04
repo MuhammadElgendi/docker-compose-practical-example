@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  ip-app01:
+    container_name: ip-app-container01
+    build: .
+    volumes:
+      - ./:/myapp
+    ports:
+      - "4000:3000"
+  ip-app02:
+    container_name: ip-app-container02
+    build: .
+    volumes:
+      - my_ip_vol:/myapp
+    ports:
+      - "4001:3000"
+  ip-app03:
+    container_name: ip-app-container03
+    build: .
+    volumes:
+      - my_ip_vol:/myapp
+    ports:
+      - "4002:3000"
+  load-balancer:
+    build: 
+      context: .
+      dockerfile: dockerfile01
+    ports:
+      - "80:80"
+volumes:
+  my_ip_vol:
+    external: true

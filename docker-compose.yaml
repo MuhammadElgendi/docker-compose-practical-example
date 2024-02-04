@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  node-app01:
+    container_name: nodejs-container01
+    build: .
+    volumes:
+      - ./:/myapp
+    ports:
+      - "4000:3000"
+  node-app02:
+    container_name: nodejs-container02
+    build: .
+    volumes:
+      - my_vol:/myapp
+    ports:
+      - "4001:3000"
+  node-app03:
+    container_name: nodejs-container03
+    build: .
+    volumes:
+      - my_vol:/myapp
+    ports:
+      - "4002:3000"
+  load-balancer:
+    build: 
+      context: .
+      dockerfile: dockerfile01
+    ports:
+      - "80:80"
+volumes:
+  my_vol:
+    external: true

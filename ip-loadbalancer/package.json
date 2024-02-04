@@ -1,0 +1,12 @@
+{
+  "name": "ip-loadbalancer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node fofa.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
